@@ -10,31 +10,44 @@ import SwiftUI
 struct Choice: View {
     // 열거형으로 만들지 않았다면 내가 원하지 않는 값들이 들어갈 수 있다.
     // var direction: String = ""
-    var direction: Direction = .north
-    var member: Member = .beta
-    var menu: Menu = .steak("레어")
+    @State var direction: Direction = .north
     
     var body: some View {
-        Text("방향은 \(direction.rawValue)쪽 입니다.")
-        Text("멤버는 \(member.rawValue) 입니다.")
+        VStack {
+            switch direction {
+            case .north:
+                Text("\(direction.rawValue)은 추워요")
+            case .west:
+                Text("\(direction.rawValue)은 예뻐요")
+            case .south:
+                Text("\(direction.rawValue)는 벌레가 많아요")
+            case .east:
+                Text("\(direction.rawValue)는 4월부터 12월까지 여름이래요")
+            }
+        }
+        
+        Button {
+            switch direction {
+            case .north:
+                direction = .east
+            case .west:
+                direction = .north
+            case .east:
+                direction = .south
+            case .south:
+                direction = .west
+            }
+        } label: {
+            Text("지역에 대한 정보가 나옵니다.")
+        }
     }
 }
 
 enum Direction: String {
-    case north = "북"
-    case west = "서"
-    case east = "동"
-    case south = "남"
-}
-
-enum Member: String {
-    case alpha = "알파", beta = "베타", gamma = "감마"
-}
-
-enum Menu {
-    case pasta
-    case pizza
-    case steak(String)
+    case north = "시베리아"
+    case west = "유럽"
+    case east = "한국"
+    case south = "호주"
 }
 
 #Preview {
