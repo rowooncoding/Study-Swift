@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct Loop: View {
+    
+    let names: [String] = ["a", "b", "c", "d", "e", "f"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ForEach(names, id: \.self) { name in
+                Text(name)
+            }
+        }
     }
 }
 

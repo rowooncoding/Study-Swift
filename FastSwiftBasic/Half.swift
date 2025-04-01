@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct Half: View {
+    
+    let names: [String] = ["김", "이", "최"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(names, id: \.self) { name in
+                
+                Text(sayHello(to: name))
+            }
+        }
+    }
+    
+    func sayHello(to name: String) -> String {
+        
+        if(name == "김") {
+            return "다시오셨군요 Hello, \(name)"
+        }
+        
+        return "Hello, \(name)"
     }
 }
 
