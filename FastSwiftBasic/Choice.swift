@@ -43,12 +43,12 @@ struct Choice: View {
     }
 }
 
-enum Direction: String {
-    case north = "시베리아"
-    case west = "유럽"
-    case east = "한국"
-    case south = "호주"
-}
+//enum Direction: String {
+//    case north = "시베리아"
+//    case west = "유럽"
+//    case east = "한국"
+//    case south = "호주"
+//}
 
 #Preview {
     Choice()
